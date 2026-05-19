@@ -22,10 +22,13 @@ meta:
 	ADDON_URL = http://github.com/npisanti/ofxPDSP
 
 common:
-	# dependencies with other addons, a list of them separated by spaces 
-	# or use += in several lines
-	# ofxOsc is required: ofxPDSP.h → ofx/OscOutput.h → ofxOsc.h
-	ADDON_DEPENDENCIES = ofxOsc
+	# dependencies with other addons, a list of them separated by spaces
+	# or use += in several lines. All three are required by ofxPDSP.h:
+	#   ofxOsc       — ofxPDSP.h → ofx/OscInput.h → ofxOsc.h
+	#   ofxAudioFile — ofxPDSP.h → DSP/header.h → samplers/SampleBuffer.h → ofxAudioFile.h
+	#   ofxMidi      — ofxPDSP.h → ofx/Midi.h → MidiIn.h / MidiKeys.h / ... → ofxMidi.h
+	#                  (gated by #ifndef __ANDROID__, so IOS should work)
+	ADDON_DEPENDENCIES = ofxOsc ofxAudioFile ofxMidi
 	
 	# include search paths, this will be usually parsed from the file system
 	# but if the addon or addon libraries need special search paths they can be
