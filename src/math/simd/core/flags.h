@@ -3,11 +3,13 @@
 #ifndef OFX_SIMDFLOATS_FLAGS_H_INCLUDED
 #define OFX_SIMDFLOATS_FLAGS_H_INCLUDED
 
-//visual studio flags
+//visual studio flags — only define if GCC/Clang hasn't already set it
+#ifndef __SSE2__
 #if (defined(_M_AMD64) || defined(_M_X64))
 	#define __SSE2__
 #elif _M_IX86_FP == 2
 	#define __SSE2__
+#endif
 #endif
 
 #ifdef __SSE2__

@@ -6,6 +6,10 @@
 
 #define OFXPDSP_SERIALOUTPUTCIRCULARBUFFERSIZE 4096
 
+using std::chrono::high_resolution_clock;
+using std::chrono::nanoseconds;
+namespace chrono = std::chrono;
+
 
 pdsp::serial::Output::ScheduledSerialMessage::ScheduledSerialMessage(){  };
 
@@ -227,7 +231,7 @@ void pdsp::serial::Output::process( int bufferSize ) noexcept{
 void pdsp::serial::Output::startDaemon(){ // OK
     
     runDaemon = true;
-    daemonThread = thread( daemonFunctionWrapper, this );   
+    daemonThread = std::thread( daemonFunctionWrapper, this );   
     
 }
     
