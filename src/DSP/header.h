@@ -62,6 +62,7 @@
 #include "filters/OnePole.h"
 #include "filters/MultiLadder4.h"
 #include "filters/SVF2.h"
+#include "filters/Korg35Filter.h"
 #include "filters/APF4.h"
 #include "filters/APF1.h"
 

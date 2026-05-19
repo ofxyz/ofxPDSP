@@ -11,6 +11,7 @@
 
 #include "filters/VAFilter.h"
 #include "filters/SVFilter.h"
+#include "filters/MS20Filter.h"
 #include "filters/CombFilter.h"
 #include "filters/PhaserFilter.h"
 
